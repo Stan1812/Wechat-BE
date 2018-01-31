@@ -1,0 +1,24 @@
+{
+  "name": "restkoa",
+  "version": "1.0.0",
+  "dependencies": {
+    "koa": "2.0.0",
+    "koa-bodyparser": "3.2.0",
+    "koa-router": "7.0.0",
+    "monk": "^6.0.5"
+  },
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stan1812/Wechat-BE.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Stan1812/Wechat-BE/issues"
+  },
+  "homepage": "https://github.com/Stan1812/Wechat-BE#readme"
+}
