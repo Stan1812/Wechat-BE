@@ -4,11 +4,26 @@ const db = new Monk('localhost/articles') //链接到库
 
 const arts = db.get('arts')
 
+const getNowFormatDate = () => {
+  let date = new Date()
+  let month = date.getMonth() + 1
+  let strDate = date.getDate()
+  if (month >= 1 && month <= 9) {
+    month = "0" + month
+  }
+  if (strDate >= 0 && strDate <= 9) {
+    strDate = "0" + strDate
+  }
+  let currentdate = date.getFullYear() + month + strDate
+  return currentdate
+}
+
+
 module.exports = {
-  'GET /api/article': async (ctx, next) => {
+  'GET /api/today': async (ctx, next) => {
     ctx.response.type = 'application/json'
     let article = await arts.find({
-      "data.date.curr": "20171228"
+      "data.date.curr": getNowFormatDate()
     })
     ctx.response.body = {
       article: article
