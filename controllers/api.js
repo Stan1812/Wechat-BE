@@ -44,11 +44,11 @@ module.exports = {
     console.log(date)
     let articles = await arts.find({
       "data.date.curr": {
-        $gt: date
+        $lte: date
       }
     }, {
       sort: {
-        "_id": -1
+        "data.date.curr": -1
       },
       limit: 5
     })
