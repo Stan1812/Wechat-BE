@@ -44,13 +44,13 @@ module.exports = {
     console.log(date)
     let articles = await arts.find({
       "data.date.curr": {
-        $lte: date
+        $lt: date
       }
     }, {
       sort: {
         "data.date.curr": -1
       },
-      limit: 5
+      limit: 6
     })
     ctx.response.type = 'application/json'
     ctx.response.body = articles
