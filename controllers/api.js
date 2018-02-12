@@ -1,6 +1,6 @@
 const Monk = require('monk')
 
-const db = new Monk('localhost/articles') //链接到库
+const db = new Monk('localhost/articles')
 
 const arts = db.get('arts')
 
