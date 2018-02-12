@@ -46,7 +46,10 @@ module.exports = {
       "data.date.curr": {
         $lt: date
       }
-    }, {
+    },{
+      fields:{
+      "data.content":false
+      },
       sort: {
         "data.date.curr": -1
       },
