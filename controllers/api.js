@@ -47,19 +47,6 @@ module.exports = {
     })
     ctx.response.body = article
   },
-
-  },
-
-  'GET /api/random': async (ctx, next) => {
-    let max = await arts.count({})
-    let randomNum = parseInt(Math.random() * (max + 1), 10);
-    let article = await arts.find({}, {
-      limit: 1,
-      skip: randomNum
-    })
-    ctx.response.body = article
-  },
-
   'POST /api/articles': async (ctx, next) => {
     let date = ctx.request.body.date
     console.log(date)
