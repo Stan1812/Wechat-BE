@@ -7,8 +7,8 @@ const controller = require('./controller');
 const app = new Koa();
 
 const Monk = require('monk');
-// 创建一个Koa对象表示web app本身:
-const db=new Monk('localhost/articles');//链接到库
+
+const db = new Monk('localhost/articles'); //链接到库
 
 
 // log request URL:

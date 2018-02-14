@@ -24,7 +24,11 @@
 获取某日文章
 'GET /api/oneart?date=xxx'
 ```
+
 ```bash
+获取随机一条数据
+'GET /api/random'
+```
 
 获取多条数据
 'POST /api/articles'

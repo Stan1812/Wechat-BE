@@ -20,25 +20,34 @@ const getNowFormatDate = () => {
 
 
 module.exports = {
+
   'GET /api/today': async (ctx, next) => {
     ctx.response.type = 'application/json'
     let article = await arts.find({
       "data.date.curr": getNowFormatDate()
     })
-    ctx.response.body = {
-      article: article
-    }
+    ctx.response.body = article
   },
+
   'GET /api/oneart': async (ctx, next) => {
     let date = ctx.request.query.date
     console.log(date)
     let article = await arts.find({
       "data.date.curr": date
     })
-    ctx.response.body = {
-      article: article
-    }
+    ctx.response.body = article
   },
+
+  'GET /api/random': async (ctx, next) => {
+    let max = await arts.count({})
+    let randomNum = parseInt(Math.random() * (max + 1), 10);
+    let article = await arts.find({}, {
+      limit: 1,
+      skip: randomNum
+    })
+    ctx.response.body = article
+  },
+
   'POST /api/articles': async (ctx, next) => {
     let date = ctx.request.body.date
     console.log(date)
@@ -46,9 +55,9 @@ module.exports = {
       "data.date.curr": {
         $lt: date
       }
-    },{
-      fields:{
-      "data.content":false
+    }, {
+      fields: {
+        "data.content": false
       },
       sort: {
         "data.date.curr": -1
